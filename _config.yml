@@ -1,1 +1,14 @@
-theme: jekyll-theme-slate
+theme: jekyll-theme-cayman
+title: Dirty Code
+description: Learn To Code The Wrong Way
+
+safe: false
+include: ["_lessons"]
+
+collections:
+  lessons:
+    output: true
+    permalink: /:collection/:path/
+  steps:
+    output: true
+    permalink: /:collection/:path/

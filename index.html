@@ -1,0 +1,19 @@
+---
+layout: default
+isHome: true
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Home</h1>
+
+  {% for lesson in site.data.lessons %}
+    <h3><a href="{{site.url}}/lessons/{{lesson.number}}">Lesson {{ lesson.number }}: {{ lesson.description }}</a></h3>
+    {% for step in site.lessons %}
+      {% if step.stepNumber and step.lessonNumber == lesson.number %}
+        <p><a href="{{step.url}}">{{step.stepNumber}} | {{step.description}}</a></p>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+</div>
