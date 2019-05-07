@@ -1,42 +1,23 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
+---
+layout: default
+---
+<body>
+  <header class="page-header" role="banner">
+    {% assign lesson = site.data.lessons | where: "number", page.lessonNumber | first %}
+    <h1 class="lesson-name">Lesson {{ page.lessonNumber }}: {{ lesson.description }}</h1>
+  </header>
 
-    {% if site.google_analytics %}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}');
-      </script>
-    {% endif %}
-    <meta charset="UTF-8">
+  <main id="content" class="main-content" role="main">
+    {{ content }}
 
-{% seo %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  </head>
-  <body>
-    <header class="page-header" role="banner">
-      {% assign lesson = site.data.lessons | where: "number", page.lessonNumber | first %}
-      <h1 class="lesson-name">Lesson {{ page.lessonNumber }}: {{ lesson.description }}</h1>
-    </header>
+    {% for step in site.lessons %}
+      {% if step.stepNumber and step.lessonNumber == page.lessonNumber %}
+        <p><a href="{{step.url}}">{{step.stepNumber}} | {{step.description}}</a></p>
+      {% endif %}
+    {% endfor %}
 
-    <main id="content" class="main-content" role="main">
-      {{ content }}
-
-      {% for step in site.lessons %}
-        {% if step.stepNumber and step.lessonNumber == page.lessonNumber %}
-          <p><a href="{{step.url}}">{{step.stepNumber}} | {{step.description}}</a></p>
-        {% endif %}
-      {% endfor %}
-
-      <footer class="site-footer">
-        ...
-      </footer>
-    </main>
-  </body>
-</html>
+    <footer class="site-footer">
+      ...
+    </footer>
+  </main>
+</body>
