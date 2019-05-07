@@ -11,16 +11,16 @@ layout: default
 
     <footer class="site-footer">
       {% if page.stepNumber == 1 %}
-        <a href="/lessons/{{ page.lessonNumber }}">lesson {{ page.lessonNumber }} home</a>
+        <a href="lessons/{{ page.lessonNumber }}">lesson {{ page.lessonNumber }} home</a>
       {% else %}
-        <a href="/lessons/{{ page.lessonNumber}}/{{ page.stepNumber | minus: 1 }}">prev</a>
+        <a href="lessons/{{ page.lessonNumber}}/{{ page.stepNumber | minus: 1 }}">prev</a>
       {% endif %}
       |
       {% assign collectionSize = site.lessons | where: "lessonNumber", page.lessonNumber | size | minus: 1 %}
       {% if page.stepNumber == collectionSize %}
-        <a href="/lessons/{{ page.lessonNumber }}">lesson {{ page.lessonNumber }} home</a>
+        <a href="lessons/{{ page.lessonNumber }}">lesson {{ page.lessonNumber }} home</a>
       {% else %}
-        <a href="/lessons/{{ page.lessonNumber}}/{{ page.stepNumber | plus: 1 }}">next</a>
+        <a href="lessons/{{ page.lessonNumber}}/{{ page.stepNumber | plus: 1 }}">next</a>
       {% endif %}
     </footer>
   </main>

@@ -12,7 +12,7 @@ layout: default
 
     {% for step in site.lessons %}
       {% if step.stepNumber and step.lessonNumber == page.lessonNumber %}
-        <p><a href="{{step.url}}">{{step.stepNumber}} | {{step.description}}</a></p>
+        <p><a href="lessons/{{step.lessonNumber}}/{{step.stepNumber}}/">{{step.stepNumber}} | {{step.description}}</a></p>
       {% endif %}
     {% endfor %}
 
