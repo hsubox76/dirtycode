@@ -25,3 +25,12 @@ img {
   border: 1px solid #f99;
   text-align: center;
 }
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  padding: 10px;
+}

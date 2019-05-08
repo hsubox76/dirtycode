@@ -2,6 +2,7 @@
 layout: default
 ---
 <body>
+  {% include nav.html %}
   <header class="page-header" role="banner">
     {% assign lesson = site.data.lessons | where: "number", page.lessonNumber | first %}
     <h1 class="lesson-name">Lesson {{ page.lessonNumber }}: {{ lesson.description }}</h1>
