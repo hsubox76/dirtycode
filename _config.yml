@@ -5,6 +5,8 @@ description: Learn To Code The Wrong Way
 safe: false
 include: ["_lessons"]
 
+google_analytics: UA-116666776-2
+
 collections:
   lessons:
     output: true
